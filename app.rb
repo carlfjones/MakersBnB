@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/user.rb'
 
 class Makersbnb < Sinatra::Base
   enable :sessions
@@ -11,14 +12,14 @@ class Makersbnb < Sinatra::Base
     erb :signup
   end
 
-  get '/home' do
-    @username = session[:user]
-    erb :home
+  post '/signup/new' do
+    session[:user] = User.create(params[:username], params[:email], params[:password])
+    redirect "/home"
   end
 
-  post '/signup/new' do
-    session[:user] = params[:username]
-    redirect "/home"
+  get '/home' do
+    @user = session[:user]
+    erb :home
   end
 
   run! if app_file == $0
