@@ -80,6 +80,18 @@ gem 'selenium-webdriver'
 gem 'pg'
 gem 'rubocop'
 ```
+
+### To set up the database
+
+Run 'psql' and create 'makersbnb' and 'makersbnb_test' databases:
+
+```
+CREATE DATABASE makersbnb;
+CREATE DATABASE makersbnb_test;
+```
+
+To set up your tables, connect to each database in 'psql' with '\c makersbnb' and '\c makersbnb_test', then run the SQL scripts found in db/migrations folder in the correct order.
+
 * $> rspec --init
 
 * Run rackup
