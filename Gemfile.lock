@@ -19,6 +19,7 @@ GEM
     mustermann (1.0.3)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
+    pg (1.1.4)
     public_suffix (3.1.1)
     rack (2.0.7)
     rack-protection (2.0.5)
@@ -58,12 +59,10 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  pg
   rspec
   selenium-webdriver
   sinatra
-
-RUBY VERSION
-   ruby 2.6.0p0
 
 BUNDLED WITH
    1.17.2
