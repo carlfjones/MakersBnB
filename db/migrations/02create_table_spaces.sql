@@ -1,0 +1,1 @@
+CREATE TABLE spaces(id SERIAL PRIMARY KEY, price INTEGER, name VARCHAR(50), description VARCHAR(100), booking BOOLEAN DEFAULT false, owner_id INTEGER REFERENCES users(id));
