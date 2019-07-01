@@ -65,3 +65,21 @@ So that I know the sign up process is conplete,
 I would like to recieve an email confirmation.
 ```
 
+## Project Setup
+
+* $> bundle install
+
+```
+# in Gemfile
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'rspec'
+gem 'capybara'
+gem 'selenium-webdriver'
+```
+* $> rspec --init
+
+* Run rackup
+
+* Open in browser on localhost:9292
