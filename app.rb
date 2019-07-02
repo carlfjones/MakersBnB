@@ -11,9 +11,8 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/signup' do
-    erb :signup 
+    erb :signup
   end
-
 
   get '/home' do
   #  @username = session[:user_id]
