@@ -1,8 +1,8 @@
 <h3>Logged in as: <%= @username.username %></h3>
 
-<form action="/signup/listings" method="POST">
-    <input type="text" name="email" placeholder="Enter Email"><br><br>
-    <input type="text" name="username" placeholder="Enter Username"><br><br>
-    <input type="text" name="password" placeholder="Enter a password"><br><br>
-    <input type="submit" value="Submit">
+<form action="/listings/confirm" method="POST">
+    <input type="text" name="name" placeholder="Name of property"><br><br>
+    <input type="text" name="description" placeholder="Description"><br><br>
+    <input type="text" name="price" placeholder="Price per night"><br><br>
+    <input type="submit" value="Submit listing">
 </form>

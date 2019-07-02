@@ -21,9 +21,17 @@ class Makersbnb < Sinatra::Base
     redirect '/listings'
   end
 
+
   get '/listings' do
-  @username = User.find(id: session[:user_id])
+  @username = User.find(id: session[:user_id].to_i)
     erb :listings
+  end
+
+  post '/listings/confirm' do
+    space = Space.create(owner_id: session[:user_id], name: params['name'], description: params['description'], price: params['price'])
+    session[:space_id] = space.id
+    @space = Space.find(id: session[:space_id])
+    erb :confirm
   end
 
   run! if app_file == $0

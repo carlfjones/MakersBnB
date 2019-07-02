@@ -11,7 +11,7 @@ describe Space do
       expect(space.name).to eq('Island')
       expect(space.description).to eq('Pool and palm trees')
       expect(space.booking).to eq('f')
-      expect(space.price).to eq(10)
+      expect(space.price).to eq("10")
     end
   end
 
