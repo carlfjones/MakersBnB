@@ -6,7 +6,7 @@ class DatabaseConnection
     if ENV['ENVIRONMENT'] == 'test'
       @plug = PG.connect(dbname: 'makersbnb_test')
     else
-      @plug = PG.connect(dbname: 'makersbnb')
+      @plug = PG.connect(dbname: 'd37k5fffpt81gq')
     end
   end
 
