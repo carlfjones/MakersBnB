@@ -1,0 +1,13 @@
+
+h1 {
+  font-family: 'Rubik Mono One', 'sans-serif';
+  font-size: 300px;
+}
+
+@font-face {
+  font-family: 'Rubik Mono One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubikmonoone/v7/UqyJK8kPP3hjw6ANTdfRk9YSN983TKUJcOj8.woff2) format('woff2');
+}
