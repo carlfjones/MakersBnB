@@ -1,4 +1,4 @@
-require 'db'
+require_relative './db'
 
 class User
 
@@ -11,9 +11,9 @@ class User
     DatabaseConnection.connect
     result = DatabaseConnection.query("INSERT INTO users (username, email, password) VALUES ('#{username}', '#{email}', '#{password}') RETURNING id, username, email, password;")
     User.new(
-      id: result[0]['id'], 
-      username: result[0]['username'], 
-      email: result[0]['email'], 
+      id: result[0]['id'],
+      username: result[0]['username'],
+      email: result[0]['email'],
       password: result[0]['password'],
       )
   end
@@ -22,9 +22,9 @@ class User
     DatabaseConnection.connect
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}';")
     User.new(
-      id: result[0]['id'], 
-      username: result[0]['username'], 
-      email: result[0]['email'], 
+      id: result[0]['id'],
+      username: result[0]['username'],
+      email: result[0]['email'],
       password: result[0]['password'],
       )
   end
