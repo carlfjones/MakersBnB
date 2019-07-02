@@ -6,7 +6,8 @@ class DatabaseConnection
     if ENV['ENVIRONMENT'] == 'test'
       @plug = PG.connect(dbname: 'makersbnb_test')
     else
-      @plug = PG.connect(dbname: 'd37k5fffpt81gq')
+      @plug = PG::Connection.new("ec2-50-16-197-244.compute-1.amazonaws.com", 5432, nil, nil, "d37k5fffpt81gq", "mwtacjgvugnztj", "53332d96369b96d480139e1fd78566a94eb886172ed0ce26bab98bba31067a57")
+
     end
   end
 
