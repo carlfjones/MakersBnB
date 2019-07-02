@@ -14,21 +14,24 @@ class Makersbnb < Sinatra::Base
     erb :signup
   end
 
-  get '/home' do
-  #  @username = session[:user_id]
-  @username = User.find(id: session[:user_id])
-    erb :home
-  end
 
   post '/signup/new' do
     user = User.create(username: params['username'], email: params['email'], password: params['password'])
     session[:user_id] = user.id
-    redirect '/home'
+    redirect '/listings'
   end
 
-  get '/home' do
-    @user = session[:user]
-    erb :home
+
+  get '/listings' do
+  @username = User.find(id: session[:user_id].to_i)
+    erb :listings
+  end
+
+  post '/listings/confirm' do
+    space = Space.create(owner_id: session[:user_id], name: params['name'], description: params['description'], price: params['price'])
+    session[:space_id] = space.id
+    @space = Space.find(id: session[:space_id])
+    erb :confirm
   end
 
   run! if app_file == $0
