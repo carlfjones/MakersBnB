@@ -14,7 +14,12 @@ class User
       plug = PG.connect(dbname: 'makersbnb')
     end
     result = plug.exec("INSERT INTO users (username, email, password) VALUES ('#{username}', '#{email}', '#{password}') RETURNING id, username, email, password;")
-    User.new(id: result[0]['id'], username: result[0]['username'], email: result[0]['email'], password: result[0]['password'])
+    User.new(
+      id: result[0]['id'], 
+      username: result[0]['username'], 
+      email: result[0]['email'], 
+      password: result[0]['password'],
+      )
   end
 
   def initialize(id:, username:, email:, password:)
