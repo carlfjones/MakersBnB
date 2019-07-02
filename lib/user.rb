@@ -22,6 +22,21 @@ class User
       )
   end
 
+  def self.find(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      plug = PG.connect(dbname: 'makersbnb_test')
+    else
+      plug = PG.connect(dbname: 'makersbnb')
+    end
+    result = plug.exec("SELECT * FROM users WHERE id = '#{id}';")
+    User.new(
+      id: result[0]['id'], 
+      username: result[0]['username'], 
+      email: result[0]['email'], 
+      password: result[0]['password'],
+      )
+  end
+
   def initialize(id:, username:, email:, password:)
     @id = id
     @username = username

@@ -16,7 +16,8 @@ class Makersbnb < Sinatra::Base
 
 
   get '/home' do
-    @username = session[:user_id]
+  #  @username = session[:user_id]
+  @username = User.find(id: session[:user_id])
     erb :home
   end
 
