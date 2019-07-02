@@ -7,11 +7,11 @@ class Makersbnb < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'Hello World'
+    erb :home
   end
 
   get '/signup' do
-    erb :signup
+    erb :signup 
   end
 
 
