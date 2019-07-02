@@ -1,4 +1,4 @@
-require 'pg'
+require 'db'
 
 class User
 
@@ -8,12 +8,8 @@ class User
   attr_reader :password
 
   def self.create(username:, email:, password:)
-    if ENV['ENVIRONMENT'] == 'test'
-      plug = PG.connect(dbname: 'makersbnb_test')
-    else
-      plug = PG.connect(dbname: 'makersbnb')
-    end
-    result = plug.exec("INSERT INTO users (username, email, password) VALUES ('#{username}', '#{email}', '#{password}') RETURNING id, username, email, password;")
+    DatabaseConnection.connect
+    result = DatabaseConnection.query("INSERT INTO users (username, email, password) VALUES ('#{username}', '#{email}', '#{password}') RETURNING id, username, email, password;")
     User.new(
       id: result[0]['id'], 
       username: result[0]['username'], 
@@ -23,12 +19,8 @@ class User
   end
 
   def self.find(id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      plug = PG.connect(dbname: 'makersbnb_test')
-    else
-      plug = PG.connect(dbname: 'makersbnb')
-    end
-    result = plug.exec("SELECT * FROM users WHERE id = '#{id}';")
+    DatabaseConnection.connect
+    result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}';")
     User.new(
       id: result[0]['id'], 
       username: result[0]['username'], 
