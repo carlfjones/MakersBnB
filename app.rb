@@ -60,5 +60,8 @@ class Makersbnb < Sinatra::Base
     erb :space
   end
 
+  get '/requests' do
+  end
+
   run! if app_file == $0
 end

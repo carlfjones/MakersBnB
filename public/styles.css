@@ -103,3 +103,102 @@ h4 {
   background-color: #666;
   color: white;
 }
+
+#eagle {
+  width: 90%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+#eagle-body {
+  width: 320px;
+  height: 300px;
+  position: relative;
+  cursor: pointer;
+}
+
+#body {
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 75px;
+  background: linear-gradient(to bottom, #F6D202 60%, #F89001);
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  z-index: 3;
+}
+
+#body:before {
+  width: 80px;
+  height: 100px;
+  position: absolute;
+  top: 150px;
+  left: 25px;
+  background-color: #F6D202;
+  border-bottom-right-radius: 100px;
+  z-index: 20;
+  content: "";
+}
+
+#tail {
+  background-color: #FE2E75;
+  height: 60px;
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 50px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#tail:before {
+  background-color: rgba(0,0,0,0.3);
+  height: 60px;
+  width: 50px;
+  position: absolute;
+  bottom: 5px;
+  left: 68px;
+  z-index: 2; 
+  content: "";
+  transform: rotate(-10deg);
+}
+
+#beak {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 50px solid #FE2E75;
+  overflow: hidden;
+}
+
+#eye {
+  position: absolute;
+  top: 70px;
+  right: 80px;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 0 5px rgba(0,0,0,.3);
+}
+
+#eye:before {
+  position: absolute;
+  top: 10px;
+  right: 9px;
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  background-color: #000;
+  z-index: 20;
+  content: "";
+}
