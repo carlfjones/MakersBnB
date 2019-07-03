@@ -25,6 +25,17 @@ describe Request do
     end
   end
 
+  describe '.approve_request' do
+    it 'user can approve a request for a space' do
+      user = User.create(username: 'Boss', email: 'test@email.com', password: 'pass123')
+      space = Space.create(owner_id: user.id, name: 'Island', description: 'Pool and palm trees', price: '10')
+      request_user = User.create(username: 'Requestuser', email: 'testy@email.com', password: 'pass1234')
+      request = Request.request_booking(2, 1)
+      approve = Request.approve_request(1, 1)
+      expect(approve.approve).to eq("t")
+    end
+  end
+
 
 
 end
