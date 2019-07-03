@@ -2,6 +2,7 @@ require 'sinatra/base'
 
 require_relative './lib/user'
 require_relative './lib/space'
+require_relative './lib/request'
 
 
 class Makersbnb < Sinatra::Base
@@ -47,7 +48,6 @@ class Makersbnb < Sinatra::Base
   get '/listings/all' do
     $spaces = Space.viewall
     @user = session[:user]
-   # session[:spaces] = @spaces
     erb :all_listings
   end
 
@@ -57,7 +57,22 @@ class Makersbnb < Sinatra::Base
         @found_space = space
       end
     end
+    session[:space] = @found_space
     erb :space
+  end
+
+  post '/requesting' do
+    @user = session[:user]
+    @space = session[:space]
+    @space_id = @space.id
+    @requested_space = Request.request_booking(@user.id, @space_id)
+    redirect '/success'
+  end
+
+  get '/success' do
+    @user = session[:user]
+    @space = session[:space]
+    erb :success
   end
 
   run! if app_file == $0
