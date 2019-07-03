@@ -20,13 +20,13 @@ class Makersbnb < Sinatra::Base
   end
 
 
-  post '/sessions/new' do
+  post '/signup/new' do
     user = User.create(username: params['username'], email: params['email'], password: params['password'])
     session[:user_id] = user.id
     redirect '/listings'
   end
 
-  post '/login' do
+  post '/sessions/new' do
     session[:user] = User.authenticate(params['username'], params[:password])
     @user = session[:user]
     redirect '/listings/all'
