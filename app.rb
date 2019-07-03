@@ -36,6 +36,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/listings/all' do
+    @spaces = Space.viewall
     erb :all_listings
   end
 

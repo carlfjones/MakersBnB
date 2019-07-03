@@ -1,5 +1,9 @@
   <h2>All Available Listings</h2>
 
   <div class="listings">
-  <div class="item">
+  <% @spaces.each do |space| %>
+  <div class="item"><h4><%= space.name %></h4>
+  <span class="description"><%= space.description %></span><br>
+  <span class="price"><%= space.price %></span></div>
+  <% end %>
   </div>
