@@ -5,7 +5,7 @@ require_relative './lib/space'
 
 
 class Makersbnb < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do
     erb :home
@@ -36,8 +36,18 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/listings/all' do
-    @spaces = Space.viewall
+    $spaces = Space.viewall
+   # session[:spaces] = @spaces
     erb :all_listings
+  end
+
+  get '/listings/:id' do
+    $spaces.each do |space| 
+      if space.id == params[:id] 
+        @found_space = space
+      end
+    end
+    erb :space
   end
 
   run! if app_file == $0
