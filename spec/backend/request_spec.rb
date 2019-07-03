@@ -13,7 +13,6 @@ describe Request do
     end
   end
 
-
   describe '.view_all_requests' do
     it 'lists all of the requests for a space' do
       user = User.create(username: 'Boss', email: 'test@email.com', password: 'pass123')
@@ -34,9 +33,8 @@ describe Request do
       request = Request.request_booking(2, 1)
       approve = Request.approve_request(1, 1)
       expect(approve.approve).to eq("t")
+
     end
   end
-
-
 
 end
