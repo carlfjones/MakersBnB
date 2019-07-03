@@ -36,5 +36,4 @@ describe Space do
     end
   end
 
-
 end

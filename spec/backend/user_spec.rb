@@ -1,4 +1,4 @@
-require 'user.rb'
+
 
 describe User do
   describe '.create' do
