@@ -85,3 +85,21 @@ h4 {
   font-size: 50px;
   text-align: center;
 }
+
+.big {
+  height: 80px;
+  width: 300px;
+  border: 3px solid black;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Rubik Mono One';
+  font-size: 30px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 6px #666;
+}
+
+.big:active, .big:hover {
+  background-color: #666;
+  color: white;
+}
