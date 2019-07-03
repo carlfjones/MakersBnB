@@ -23,4 +23,18 @@ describe Space do
       expect(found_space.id).to eq(space.id)
     end
   end
+
+  describe '.viewall' do
+    it 'lists all of the spaces' do
+      user = User.create(username: 'Boss', email: 'test@email.com', password: 'pass123')
+      space = Space.create(owner_id: user.id, name: 'Island', description: 'Pool and palm trees', price: '10')
+      space1 = Space.create(owner_id: user.id, name: 'Castle', description: 'Bricks', price: '100')
+      space2 = Space.create(owner_id: user.id, name: 'Tent', description: 'Cold', price: '200')
+      view = Space.viewall
+      expect(view.length).to eq(3)
+      expect(view.first.id).to eq("1")
+    end
+  end
+
+
 end
