@@ -25,7 +25,7 @@ class Space
       end
 
       def self.viewall
-        result = DatabaseConnection.connect.query("SELECT * FROM spaces;")
+        result = DatabaseConnection.connect.query("SELECT * FROM spaces WHERE booking = 'false';")
         result.map { |listing|
         Space.new(id: listing['id'], owner_id: listing['owner_id'], name: listing['name'],
           description: listing['description'], price: listing['price'], booking: listing['booking'])
