@@ -26,3 +26,15 @@ div {
 .centered {
   text-align: center;
 }
+
+.listings {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.item {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background-color: red;
+}
