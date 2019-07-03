@@ -18,4 +18,13 @@ class Request
     Request.new(result[0]["id"], result[0]["user_id"], result[0]["space_id"])
  end
 
+  def self.view_all_requests(space_id)
+    DatabaseConnection.connect
+    result = DatabaseConnection.query("SELECT * FROM request WHERE space_id = '#{space_id}';")
+    result.map { |request|
+       Request.new( request["id"], request["user_id"], request["space_id"])
+    }
+  end
+
+
 end
