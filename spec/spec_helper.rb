@@ -11,12 +11,17 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative './backend/setup_test_database.rb'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = Makersbnb
 
 ### the rest of the file ###
-
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 
 
