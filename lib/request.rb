@@ -1,4 +1,4 @@
-require 'db'
+require_relative './db'
 
 class Request
 

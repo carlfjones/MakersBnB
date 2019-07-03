@@ -1,4 +1,5 @@
 <h4>SPACE RENDERS: <%= @found_space.name %></h4>
 <div class="description"><%= @found_space.description %></div>
 <div class="price"><%= @found_space.price %></div>
-<button class="big" value="request">REQUEST</button>
+<form action="/requesting" method="post">
+<button class="big" type="submit">REQUEST</button></form>
