@@ -36,7 +36,7 @@ class User
       )
   end
 
-  def self.authenticate(username, password)
+  def self.authenticate(username:, password:)
     DatabaseConnection.connect
     result = DatabaseConnection.query("SELECT * FROM users WHERE username = '#{username}' AND password = '#{password}';")
     User.new(

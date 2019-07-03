@@ -27,7 +27,7 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/sessions/new' do
-    session[:user] = User.authenticate(params['username'], params[:password])
+    session[:user] = User.authenticate(username: params['username'], password: params['password'])
     @user = session[:user]
     redirect '/listings/all'
   end
@@ -46,6 +46,7 @@ class Makersbnb < Sinatra::Base
 
   get '/listings/all' do
     $spaces = Space.viewall
+    @user = session[:user]
    # session[:spaces] = @spaces
     erb :all_listings
   end
