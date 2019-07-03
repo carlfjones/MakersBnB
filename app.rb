@@ -74,6 +74,9 @@ class Makersbnb < Sinatra::Base
     @space = session[:space]
     erb :success
   end
+  
+  get '/requests' do
+  end
 
   run! if app_file == $0
 end
