@@ -13,6 +13,7 @@ describe Request do
     end
   end
 
+
   describe '.view_all_requests' do
     it 'lists all of the requests for a space' do
       user = User.create(username: 'Boss', email: 'test@email.com', password: 'pass123')
