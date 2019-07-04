@@ -3,7 +3,7 @@
 <div class="flex">
   <div class="requestsmade">
     <span class="titleoftable">
-      Requests You Have Made:
+      Requests You Have Received:
       </span><br><br>
       <% @landlordrequests.each do |space| %>
       <span class="requestbox">
@@ -12,11 +12,17 @@
         <span class="username"><%= space['username'] %></span>
       </span>
       <% end %>
-      </div>
   </div>
   <div class="requestsreceived">
     <span class="titleoftable">
-      Requests You Have Received:
+      Requests You Have Made:
       </span>
+      <% @tenantrequests.each do |space| %>
+      <span class="requestbox">
+        <span class="name"><%= space['id'] %></span><br>
+        <span class="approved"><%= space['user_id'] %></span><br>
+        <span class="username"><%= space['approved'] %></span>
+      </span>
+      <% end %>
   </div>
 </div>
