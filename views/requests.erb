@@ -7,9 +7,9 @@
       </span><br><br>
       <% @landlordrequests.each do |space| %>
       <span class="requestbox">
-        <span class="name"><%= space['name'] %></span><br>
-        <span class="approved"><%= space['approved'] %></span><br>
-        <span class="username"><%= space['username'] %></span>
+        <span class="name">Space name: <%= space['name'] %></span><br>
+        <span class="approved">Status: <%= space['approved'] %></span><br>
+        <span class="username">Requested by: <%= space['username'] %></span>
       </span>
       <% end %>
   </div>
@@ -19,9 +19,9 @@
       </span>
       <% @tenantrequests.each do |space| %>
       <span class="requestbox">
-        <span class="name"><%= space['id'] %></span><br>
-        <span class="approved"><%= space['user_id'] %></span><br>
-        <span class="username"><%= space['approved'] %></span>
+        <span class="name">Space ID: <%= space.id %></span><br>
+        <span class="username">Owned by: <%= space.user_id %></span><br>
+        <span class="approved">Status: <%= space.approved %></span>
       </span>
       <% end %>
   </div>
