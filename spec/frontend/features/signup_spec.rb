@@ -14,6 +14,6 @@ feature "User can sign up to Makers Bnb" do
     fill_in 'password', with: "Password"
     click_button "Submit"
 
-    expect(page).to have_content("Logged in as: Remstar")
+    expect(page).to have_content("All Available Listings for Remstar")
   end
 end

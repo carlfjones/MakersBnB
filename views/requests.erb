@@ -1,0 +1,22 @@
+<h2>Your Requests</h2>
+
+<div class="flex">
+  <div class="requestsmade">
+    <span class="titleoftable">
+      Requests You Have Made:
+      </span><br><br>
+      <% @landlordrequests.each do |space| %>
+      <span class="requestbox">
+        <span class="name"><%= space['name'] %></span><br>
+        <span class="approved"><%= space['approved'] %></span><br>
+        <span class="username"><%= space['username'] %></span>
+      </span>
+      <% end %>
+      </div>
+  </div>
+  <div class="requestsreceived">
+    <span class="titleoftable">
+      Requests You Have Received:
+      </span>
+  </div>
+</div>
