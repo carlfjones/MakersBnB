@@ -17,11 +17,14 @@
     <span class="titleoftable">
       Requests You Have Made:
       </span>
-      <% @tenantrequests.each do |space| %>
-      <span class="requestbox">
-        <span class="name">Space ID: <%= space.id %></span><br>
-        <span class="username">Owned by: <%= space.user_id %></span><br>
-        <span class="approved">Status: <%= space.approved %></span>
+      <% @space_names = [] %>
+      <% @tenantrequests.each do |i| %>
+      <% @space_names << Space.find(id: i.space_id) %>
+      <% end %>
+      <% @space_names.each do |space| %>  
+        <span class="requestbox">
+        <span class="name">Name of space: <%= space.name %></span><br>
+        <span class="approved">Status: <%= space.booking %></span><br>
       </span>
       <% end %>
   </div>
