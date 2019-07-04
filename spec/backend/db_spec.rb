@@ -1,6 +1,6 @@
 require 'db'
 
-describe DatabaseConnection do 
+describe DatabaseConnection do
   it 'connects' do
     expect(PG).to receive(:connect).with(dbname: 'makersbnb_test')
     DatabaseConnection.connect
