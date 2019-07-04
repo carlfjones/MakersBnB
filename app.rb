@@ -22,8 +22,7 @@ class Makersbnb < Sinatra::Base
 
 
   post '/signup/new' do
-    user = User.create(username: params['username'], email: params['email'], password: params['password'])
-    session[:user_id] = user.id
+    session[:user] = User.create(username: params['username'], email: params['email'], password: params['password'])
     redirect '/listings'
   end
 
@@ -34,12 +33,14 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/listings' do
-  @username = User.find(id: session[:user_id].to_i)
+    id = session[:user].id.to_i
+    @username = User.find(id: id)
     erb :listings
   end
 
   post '/listings/confirm' do
-    space = Space.create(owner_id: session[:user_id], name: params['name'], description: params['description'], price: params['price'])
+    id = session[:user].id.to_i
+    space = Space.create(owner_id: id, name: params['name'], description: params['description'], price: params['price'])
     session[:space_id] = space.id
     @space = Space.find(id: session[:space_id])
     erb :confirm
@@ -52,8 +53,8 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/listings/:id' do
-    $spaces.each do |space| 
-      if space.id == params[:id] 
+    $spaces.each do |space|
+      if space.id == params[:id]
         @found_space = space
       end
     end
@@ -74,7 +75,7 @@ class Makersbnb < Sinatra::Base
     @space = session[:space]
     erb :success
   end
-  
+
   get '/requests' do
   end
 
