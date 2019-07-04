@@ -14,8 +14,8 @@ feature 'user can view requests' do
     # click_on('Party Mansion')
     find_link("request").click
     expect(page).to have_content("Your Requests")
-    expect(page).to have_css('div id."requestsmade"')
-    expect(page).to have_css('div id."requestsreceived"')
+    expect(page).to have_css('div.requestsmade')
+    expect(page).to have_css('div.requestsreceived')
 
 
 

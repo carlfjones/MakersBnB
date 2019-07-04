@@ -77,6 +77,8 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/requests' do
+    id = session[:user].id
+    @landlordrequests = Request.landlord_view_all_requests(id)
     erb :requests
   end
 
