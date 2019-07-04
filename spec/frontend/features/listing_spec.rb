@@ -10,6 +10,6 @@ feature "User can post a listing" do
     fill_in 'description', with: "7 Hot tubs, 14 Bars, 3 pools and 34 bedrooms"
     fill_in 'price', with: 56
     click_button "Submit listing"
-    expect(page).to have_content("Your listing has been posted")
+    expect(page).to have_content("All Available Listings for")
   end
 end
