@@ -65,8 +65,7 @@ class Makersbnb < Sinatra::Base
   post '/requesting' do
     @user = session[:user]
     @space = session[:space]
-    @space_id = @space.id
-    @requested_space = Request.request_booking(@user.id, @space_id)
+    @requested_space = Request.request_booking(@user.id, @space.id, from_date='2001-12-21', to_date='2001-12-23')
     redirect '/success'
   end
 
