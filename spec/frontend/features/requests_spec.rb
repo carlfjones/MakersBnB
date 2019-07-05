@@ -28,10 +28,10 @@ feature 'user can view requests' do
     click_button "Submit"
     find_link("Party Mansion").click
     find_button("REQUEST").click
-    find_link("Look again at the listings").click
+    find_link("Back to list").click
     find_link("NoParty Mansion").click
     find_button("REQUEST").click
-    find_link("Look again at the listings").click
+    find_link("Back to list").click
     click_link('request')
     expect(page).to have_content("Your Requests")
     expect(page).to have_css('div.requestsmade')
@@ -41,6 +41,5 @@ feature 'user can view requests' do
     expect(page).to have_content("Party Mansion")
     expect(page).to have_content("NoParty Mansion")
     expect(page).to have_content("Remstar")
-    expect(page).to have_content("BizarroRemstar")
   end
 end
