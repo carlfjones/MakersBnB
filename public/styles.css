@@ -246,3 +246,9 @@ h4 {
   z-index: 20;
   content: "";
 }
+
+#home {
+  font-family: 'Rubik Mono One';
+  text-decoration: underline;
+  font-size: 1rem;
+}

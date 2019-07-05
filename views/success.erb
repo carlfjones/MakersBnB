@@ -1,5 +1,12 @@
 <h4>Thanks, <%= @user.username %>, we got your request to book <%= @space.name %></h4>
-<h5><a href="/listings/all">Look again at the listings</a></h5>
+<span class="navigation"><a id="add" href="/listings">
+Add a new space
+</a>
+|
+<a id="request" href="/listings/all">
+Back to list
+</a>
+</span><br><br>
 <div id="eagle">
   <div id="eagle-body">
     <div id="body"></div>
